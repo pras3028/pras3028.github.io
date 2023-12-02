@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<label for="freeform">Enter chords here:</label>
+<input type="button" id="TransposeButton" onclick="printTextArea()" value="TransposeCM"/>
 <br>
-
+<!--<label for="freeform" id="EnterTextId">Enter chords here:</label>-->
 <!--<textarea id="freeform" name="freeform" rows="100" cols="100"></textarea>-->
 <!--<textarea name="text" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>-->
 
 
-  <head>
-    <title>Print TextArea</title>
+  <!--<head>-->
+    <!--<title>Print TextArea</title>-->
     <!--<script type="text/javascript">
       function printTextArea() {
         childWindow = window.open('','childWindow','location=yes, menubar=yes, toolbar=yes');
@@ -26,18 +25,22 @@
 	    <script type="text/javascript">
       function printTextArea() {
             var x = document.createElement("TEXTAREA");
+			x.cols = 100;
+    x.rows = 200;
     var t = document.createTextNode(document.getElementById('targetTextArea').value.replace('cm', 'dm'));
+	var inputTextArea = document.getElementById("targetTextArea");	
 	x.appendChild(t);
     document.body.appendChild(x);
+	document.getElementById("targetTextArea").remove();
+	//document.getElementById("EnterTextId").remove();
+	document.getElementById("TransposeButton").remove();
+	window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
       }
     </script>
-  </head>
+  <!--</head>-->
   <body>
-    <!--<textarea rows="20" cols="50" id="targetTextArea">      TextArea value...    </textarea>-->
-	<textarea name="text" id="targetTextArea" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>
-    <input type="button" onclick="printTextArea()" value="Transpose"/>
-	<br>
-	<!--<button type="button" onclick="printTextArea();">Transpose</button>-->
+	<!--<textarea name="text" id="targetTextArea" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>-->
+    <textarea id="targetTextArea" name="inputText" rows="200" cols="100"></textarea>	
   </body>
 
 
