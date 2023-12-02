@@ -11,19 +11,19 @@
 			var inputTextAreaElement = document.getElementById("inputTextArea");
 			
 			// Method 1: Start
-			//var t = inputTextAreaElement.value.replace('cm', 'dm');
-			//inputTextAreaElement.value = t;
+			var t = inputTextAreaElement.value.replace('cm', 'dm');
+			inputTextAreaElement.value = t;
 			// Method 1: End
 			
 			// Method 2: Start
-            var x = document.createElement("TEXTAREA");
-			x.cols = 100;
-			x.rows = 200;			
-			var tUpdated = inputTextAreaElement.value.replace('cm', 'dm');
-			var t = document.createTextNode(tUpdated);			
-			x.appendChild(t);
-			document.body.appendChild(x);
-			inputTextAreaElement.remove();
+            //var x = document.createElement("TEXTAREA");
+			//x.cols = 100;
+			//x.rows = 200;			
+			//var tUpdated = inputTextAreaElement.value.replace('cm', 'dm');
+			//var t = document.createTextNode(tUpdated);			
+			//x.appendChild(t);
+			//document.body.appendChild(x);
+			//inputTextAreaElement.remove();
 			// Method 2: End			
 		}
 	  
