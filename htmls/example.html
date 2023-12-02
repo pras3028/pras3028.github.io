@@ -11,7 +11,7 @@
 			var inputTextAreaElement = document.getElementById("inputTextArea");
 			
 			// Method 1: Start
-			var t = inputTextAreaElement.value.replace('cm', 'dm');
+			var t = inputTextAreaElement.value.replaceAll('cm', 'dm');
 			inputTextAreaElement.value = t;
 			// Method 1: End
 			
@@ -19,7 +19,7 @@
             //var x = document.createElement("TEXTAREA");
 			//x.cols = 100;
 			//x.rows = 200;			
-			//var tUpdated = inputTextAreaElement.value.replace('cm', 'dm');
+			//var tUpdated = inputTextAreaElement.value.replaceAll('cm', 'dm');
 			//var t = document.createTextNode(tUpdated);			
 			//x.appendChild(t);
 			//document.body.appendChild(x);
