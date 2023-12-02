@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<input type="button" id="TransposeButton" onclick="printTextArea()" value="TransposeCM"/>
+<input type="button" id="TransposeButton" onclick="printTextArea()" value="Transpose-Cm"/>
 <br>
-<!--<label for="freeform" id="EnterTextId">Enter chords here:</label>-->
-<!--<textarea id="freeform" name="freeform" rows="100" cols="100"></textarea>-->
-<!--<textarea name="text" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>-->
-
 
   <!--<head>-->
     <!--<title>Print TextArea</title>-->
@@ -26,22 +22,46 @@
       function printTextArea() {
             var x = document.createElement("TEXTAREA");
 			x.cols = 100;
-    x.rows = 200;
-    var t = document.createTextNode(document.getElementById('targetTextArea').value.replace('cm', 'dm'));
-	var inputTextArea = document.getElementById("targetTextArea");	
-	x.appendChild(t);
-    document.body.appendChild(x);
-	document.getElementById("targetTextArea").remove();
-	//document.getElementById("EnterTextId").remove();
-	document.getElementById("TransposeButton").remove();
-	window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
+			x.rows = 200;
+			var t = document.createTextNode(document.getElementById('inputTextArea').value.replace('cm', 'dm'));
+			var inputTextAreaId = document.getElementById("inputTextArea");	
+			x.appendChild(t);
+			document.body.appendChild(x);
+			document.getElementById("inputTextArea").remove();
+			//document.getElementById("TransposeButton").remove();
+			
+			//var btn = document.getElementById('TransposeButton');
+
+//btn.addEventListener("click", function() {
+  //var i = 10;
+  //var int = setInterval(function() {
+    //window.scrollTo(0, i);
+    //i += 10;
+    //if (i >= 200) clearInterval(int);
+  //}, 20);
+  
+  //window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
+//})
+			
+			//window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
       }
+	  
+	  			var btn = document.getElementById('TransposeButton');
+
+btn.addEventListener("click", function() {
+  var i = 10;
+  var int = setInterval(function() {
+    window.scrollTo(0, i);
+    i += 10;
+    if (i >= 200) clearInterval(int);
+   }, 20);
+  
+  //window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
+})
     </script>
   <!--</head>-->
   <body>
 	<!--<textarea name="text" id="targetTextArea" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>-->
-    <textarea id="targetTextArea" name="inputText" rows="200" cols="100"></textarea>	
+    <textarea id="inputTextArea" name="inputText" rows="200" cols="100"></textarea>	
   </body>
-
-
 </html>
