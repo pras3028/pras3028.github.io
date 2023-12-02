@@ -2,24 +2,10 @@
 <html lang="en">
 <input type="button" id="TransposeButton" onclick="printTextArea()" value="Transpose-Cm"/>
 <br>
-
-  <!--<head>-->
-    <!--<title>Print TextArea</title>-->
-    <!--<script type="text/javascript">
-      function printTextArea() {
-        childWindow = window.open('','childWindow','location=yes, menubar=yes, toolbar=yes');
-        childWindow.document.open();
-        childWindow.document.write('<html><head></head><body>');
-        childWindow.document.write(document.getElementById('targetTextArea').value.replace(/\n/gi,'<br>'));
-        childWindow.document.write('</body></html>');
-        childWindow.print();
-        childWindow.document.close();
-        childWindow.close();
-      }
-    </script>-->
-	
-	    <script type="text/javascript">
-      function printTextArea() {
+	 <script type="text/javascript">
+		
+		// Update Text
+		function printTextArea() {
             var x = document.createElement("TEXTAREA");
 			x.cols = 100;
 			x.rows = 200;
@@ -28,40 +14,33 @@
 			x.appendChild(t);
 			document.body.appendChild(x);
 			document.getElementById("inputTextArea").remove();
-			//document.getElementById("TransposeButton").remove();
-			
-			//var btn = document.getElementById('TransposeButton');
-
-//btn.addEventListener("click", function() {
-  //var i = 10;
-  //var int = setInterval(function() {
-    //window.scrollTo(0, i);
-    //i += 10;
-    //if (i >= 200) clearInterval(int);
-  //}, 20);
-  
-  //window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
-//})
-			
-			//window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
-      }
+			document.getElementById("TransposeButton").remove();			
+		}
 	  
-	  			var btn = document.getElementById('TransposeButton');
-
-btn.addEventListener("click", function() {
-  var i = 10;
-  var int = setInterval(function() {
-    window.scrollTo(0, i);
-    i += 10;
-    if (i >= 200) clearInterval(int);
-   }, 20);
-  
-  //window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
-})
+	  
+		// Scroll
+		//var w = window.innerWidth;
+		var fullWindowHeight = window.innerHeight;
+		var step = 0.2;
+		var btn = document.getElementById('TransposeButton');
+		btn.addEventListener("click", function() {
+		var i = step;
+		var int = setInterval(function() {
+					window.scrollTo(0, i);
+					i += step; if(i>=20000) clearInterval(int);
+					}, step);
+					
+					window.addEventListener("resize", function() {
+					if(window.innerHeight == fullWindowHeight) {
+						clearInterval(int);
+					} else if(window.innerHeight < fullWindowHeight*0.9) {
+						clearInterval(int);
+					}
+				})  
+		})
+		
     </script>
-  <!--</head>-->
   <body>
-	<!--<textarea name="text" id="targetTextArea" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>-->
     <textarea id="inputTextArea" name="inputText" rows="200" cols="100"></textarea>	
   </body>
 </html>
