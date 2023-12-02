@@ -7,20 +7,28 @@
 		
 		// Update Text
 		function printTextArea() {
+		
+			var inputTextAreaElement = document.getElementById("inputTextArea");
+			
+			// Method 1: Start
+			//var t = inputTextAreaElement.value.replace('cm', 'dm');
+			//inputTextAreaElement.value = t;
+			// Method 1: End
+			
+			// Method 2: Start
             var x = document.createElement("TEXTAREA");
 			x.cols = 100;
-			x.rows = 200;
-			var t = document.createTextNode(document.getElementById('inputTextArea').value.replace('cm', 'dm'));
-			var inputTextAreaId = document.getElementById("inputTextArea");	
+			x.rows = 200;			
+			var tUpdated = inputTextAreaElement.value.replace('cm', 'dm');
+			var t = document.createTextNode(tUpdated);			
 			x.appendChild(t);
 			document.body.appendChild(x);
-			document.getElementById("inputTextArea").remove();
-			//document.getElementById("TransposeButton").remove();			
+			inputTextAreaElement.remove();
+			// Method 2: End			
 		}
 	  
 	  
 		// Scroll
-		//var w = window.innerWidth;
 		var fullWindowHeight = window.innerHeight;
 		var step = 0.2;
 		var btn = document.getElementById('ScrollText');
@@ -32,11 +40,7 @@
 					}, step);
 					
 					window.addEventListener("resize", function() {
-					if(window.innerHeight == fullWindowHeight) {
 						clearInterval(int);
-					} else if(window.innerHeight < fullWindowHeight*0.9) {
-						clearInterval(int);
-					}
 				})  
 		})
 		
