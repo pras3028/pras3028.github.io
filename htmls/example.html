@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <input type="button" id="TransposeButton" onclick="printTextArea()" value="Transpose-Cm"/>
+<input type="button" id="ScrollText" onclick="ScrollTextArea()" value="Scroll"/>
 <br>
 	 <script type="text/javascript">
 		
@@ -14,7 +15,7 @@
 			x.appendChild(t);
 			document.body.appendChild(x);
 			document.getElementById("inputTextArea").remove();
-			document.getElementById("TransposeButton").remove();			
+			//document.getElementById("TransposeButton").remove();			
 		}
 	  
 	  
@@ -22,7 +23,7 @@
 		//var w = window.innerWidth;
 		var fullWindowHeight = window.innerHeight;
 		var step = 0.2;
-		var btn = document.getElementById('TransposeButton');
+		var btn = document.getElementById('ScrollText');
 		btn.addEventListener("click", function() {
 		var i = step;
 		var int = setInterval(function() {
