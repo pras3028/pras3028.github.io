@@ -7,14 +7,54 @@
 <br>
 <br>
 	 <script type="text/javascript">
-		
+
+		const chords_major = ["A ", "A# ", "B ", "C ", "C# ", "D ", "D# ", "E ", "F ", "F# ", "G ", "G# "];
+		const chords_major_no_space = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
+
+		const chords_minor = ["Am ", "A#m ", "Bm ", "Cm ", "C#m ", "Dm ", "D#m ", "Em ", "Fm ", "F#m ", "Gm ", "G#m "];
+		const chords_minor_no_space = ["Am", "A#m", "Bm", "Cm", "C#m", "Dm", "D#m", "Em", "Fm", "F#m", "Gm", "G#m"];
+
+		// TransposeUp
+		function transposeUp(inputText){
+			var inputTextCpy = inputText;
+
+			// Add space after \n
+			inputTextCpy = inputTextCpy.replaceAll("\n"," \n");
+
+                        for(let i =0; i<chords_major.length; i++)
+			{
+     				inputTextCpy = inputTextCpy.replaceAll(chords_major[i], chords_major_no_space[(i+1)%chords_major_no_space.length]+"@@");
+			}
+
+			for(let i =0; i<chords_minor.length; i++)
+			{
+     				inputTextCpy = inputTextCpy.replaceAll(chords_minor[i], chords_minor_no_space[(i+1)%chords_minor_no_space.length]+"@@");
+			}
+
+			inputTextCpy = inputTextCpy.replaceAll("@@", " ");
+			inputTextCpy = inputTextCpy.replaceAll(" \n","\n");
+
+		        return inputTextCpy;
+		}
+
 		// Update Text
 		function transposeChords() {
+			var inputTextAreaElement = document.getElementById("inputTextArea");
+
+			var t = inputTextAreaElement.value;
+
+                        t = transposeUp(t);
+
+			inputTextAreaElement.value = t;			
+		}
+
+		// Replace Cm with Dm
+		function transposeCm() {
 		
 			var inputTextAreaElement = document.getElementById("inputTextArea");
 			
 			// Method 1: Start
-			var t = inputTextAreaElement.value.replaceAll('cm', 'dm');
+			var t = inputTextAreaElement.value.replaceAll('Cm', 'Dm');
 			inputTextAreaElement.value = t;
 			// Method 1: End
 			
