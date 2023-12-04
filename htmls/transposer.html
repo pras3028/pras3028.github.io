@@ -10,30 +10,57 @@
 
 		////////// Flat /////////
                 ////// No Brackets /////
-                // Major //
+                // Major
 		const chords_major_flat_in = ["Ab ", "Bb ", "Db ", "Eb ", "Gb "];
 		const chords_major_flat_out = ["G# ", "A# ", "C# ", "D# ", "F# "];
-                // Minor //
+
+                // Minor
 		const chords_minor_flat_in = ["Abm ", "Bbm ", "Dbm ", "Ebm ", "Gbm "];
 		const chords_minor_flat_out = ["G#m ", "A#m ", "C#m ", "D#m ", "F#m "];
+                
+		// Major 7
+		const chords_major_7_flat_in = ["Ab7 ", "Bb7 ", "Db7 ", "Eb7 ", "Gb7 "];
+		const chords_major_7_flat_out = ["G#7 ", "A#7 ", "C#7 ", "D#7 ", "F#7 "];
+
+                // Minor 7
+		const chords_minor_7_flat_in = ["Abm7 ", "Bbm7 ", "Dbm7 ", "Ebm7 ", "Gbm7 "];
+		const chords_minor_7_flat_out = ["G#m7 ", "A#m7 ", "C#m7 ", "D#m7 ", "F#m7 "];
 
 		////////// Flat /////////
                 ////// Small Brackets /////
 		// Major
 		const chords_major_flat_in_small_brackets = ["(Ab)", "(Bb)", "(Db)", "(Eb)", "(Gb)"];
 		const chords_major_flat_out_small_brackets = ["(G#)", "(A#)", "(C#)", "(D#)", "(F#)"];
+
 		// Minor
 		const chords_minor_flat_in_small_brackets = ["(Abm)", "(Bbm)", "(Dbm)", "(Ebm)", "(Gbm)"];
 		const chords_minor_flat_out_small_brackets = ["(G#m)", "(A#m)", "(C#m)", "(D#m)", "(F#m)"];
+
+		// Major 7
+		const chords_major_7_flat_in_small_brackets = ["(Ab7)", "(Bb7)", "(Db7)", "(Eb7)", "(Gb7)"];
+		const chords_major_7_flat_out_small_brackets = ["(G#7)", "(A#7)", "(C#7)", "(D#7)", "(F#7)"];
+
+		// Minor 7
+		const chords_minor_7_flat_in_small_brackets = ["(Abm7)", "(Bbm7)", "(Dbm7)", "(Ebm7)", "(Gbm7)"];
+		const chords_minor_7_flat_out_small_brackets = ["(G#m7)", "(A#m7)", "(C#m7)", "(D#m7)", "(F#m7)"];
 
 		////////// Flat /////////
                 ////// Big Brackets /////
 		// Major
 		const chords_major_flat_in_big_brackets = ["[Ab]", "[Bb]", "[Db]", "[Eb]", "[Gb]"];
 		const chords_major_flat_out_big_brackets = ["[G#]", "[A#]", "[C#]", "[D#]", "[F#]"];
+
 		// Minor
 		const chords_minor_flat_in_big_brackets = ["[Abm]", "[Bbm]", "[Dbm]", "[Ebm]", "[Gbm]"];
 		const chords_minor_flat_out_big_brackets = ["[G#m]", "[A#m]", "[C#m]", "[D#m]", "[F#m]"];
+
+		// Major 7
+		const chords_major_7_flat_in_big_brackets = ["[Ab7]", "[Bb7]", "[Db7]", "[Eb7]", "[Gb7]"];
+		const chords_major_7_flat_out_big_brackets = ["[G#7]", "[A#7]", "[C#7]", "[D#7]", "[F#7]"];
+
+		// Minor 7
+		const chords_minor_7_flat_in_big_brackets = ["[Abm7]", "[Bbm7]", "[Dbm7]", "[Ebm7]", "[Gbm7]"];
+		const chords_minor_7_flat_out_big_brackets = ["[G#m7]", "[A#m7]", "[C#m7]", "[D#m7]", "[F#m7]"];
 
 		////////// Regular /////////
 		////// No Brackets /////
@@ -111,6 +138,18 @@
      				inputTextCpy = inputTextCpy.replaceAll(chords_minor_flat_in[i], chords_minor_flat_out[i]);
 			}
 
+			// Major 7
+                        for(let i =0; i<chords_major_7_flat_in.length; i++)
+			{
+     				inputTextCpy = inputTextCpy.replaceAll(chords_major_7_flat_in[i], chords_major_7_flat_out[i]);
+			}
+
+			// Minor 7
+                        for(let i =0; i<chords_minor_7_flat_in.length; i++)
+			{
+     				inputTextCpy = inputTextCpy.replaceAll(chords_minor_7_flat_in[i], chords_minor_7_flat_out[i]);
+			}
+
 			////// Flat /////
 			////// Small Brackets /////
 			// Major 
@@ -123,6 +162,18 @@
                         for(let i =0; i<chords_minor_flat_in_small_brackets.length; i++)
 			{
      				inputTextCpy = inputTextCpy.replaceAll(chords_minor_flat_in_small_brackets[i], chords_minor_flat_out_small_brackets[i]);
+			}
+
+			// Major 7
+                        for(let i =0; i<chords_major_7_flat_in_small_brackets.length; i++)
+			{
+     				inputTextCpy = inputTextCpy.replaceAll(chords_major_7_flat_in_small_brackets[i], chords_major_7_flat_out_small_brackets[i]);
+			}
+
+			// Minor 7
+                        for(let i =0; i<chords_minor_7_flat_in_small_brackets.length; i++)
+			{
+     				inputTextCpy = inputTextCpy.replaceAll(chords_minor_7_flat_in_small_brackets[i], chords_minor_7_flat_out_small_brackets[i]);
 			}
 
 			////// Flat /////
@@ -139,6 +190,17 @@
      				inputTextCpy = inputTextCpy.replaceAll(chords_minor_flat_in_big_brackets[i], chords_minor_flat_out_big_brackets[i]);
 			}
 
+			// Major 7
+                        for(let i =0; i<chords_major_7_flat_in_big_brackets.length; i++)
+			{
+     				inputTextCpy = inputTextCpy.replaceAll(chords_major_7_flat_in_big_brackets[i], chords_major_7_flat_out_big_brackets[i]);
+			}
+
+			// Minor  7
+                        for(let i =0; i<chords_minor_7_flat_in_big_brackets.length; i++)
+			{
+     				inputTextCpy = inputTextCpy.replaceAll(chords_minor_7_flat_in_big_brackets[i], chords_minor_7_flat_out_big_brackets[i]);
+			}
 
 			////////// Regular /////////
 			////// No Brackets /////			
