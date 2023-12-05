@@ -5,7 +5,7 @@
 <br>
 <br>
 <!--<label for="html">Speed:</label>-->
-<textarea id="scrollSpeed" name="ScrollSpeedText" rows="1" cols="5" style="resize:none;border:2px solid lime;">0.05</textarea>
+<textarea id="scrollSpeed" name="ScrollSpeedText" rows="1" cols="5" style="resize:none;border:2px solid lime;">0.02</textarea>
 <br>
 <br>
 <input type="button" id="TransposeButton" style="background:#66BB55;color:white;" onclick="transposeChords()" value="Transpose"/>
@@ -339,19 +339,18 @@
 		var btn_scroll = document.getElementById('ScrollText');
 		var btn_stop = document.getElementById('StopScrollText');
 
+		btn_scroll.addEventListener("click", function() {
 		var step = parseFloat(document.getElementById("scrollSpeed").value);
 		//var i = step;
-		var i = document.body.scrollTop;
-		
-		btn_scroll.addEventListener("click", function() {
-		//var i = step;
+		var i = window.pageYOffset;
+
 		var int = setInterval(function() {
 							window.scrollTo(0, i);			
 							i += step; if(i>=20000) clearInterval(int);
 		 				 }, step);
 				
 						btn_stop.addEventListener("click", function() {
-							clearInterval(int);						
+							clearInterval(int);
 						})
 
 						window.addEventListener("resize", function() {
