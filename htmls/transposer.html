@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<input type="button" id="ScrollText" style="background:#0000FF;color:white;position:fixed;  padding: 5px 10px;font-size: 25px;" value="Scroll"/>
-<input type="button" id="IncreaseScrollSpeed" style="disabled:true;background:#808080;color:black;position:fixed;left:120px;padding:4px 9px;font-size:25px;" value="   +   "/>
-<input type="button" id="DecreaseScrollSpeed" style="disabled:true;background:#808080;color:black;position:fixed;left:220px;padding:4px 9px;font-size:25px;" value="   -   "/>
-<input type="button" id="StopScrollText" style="disabled:true;background:#808080;color:white;position:fixed;left:320px;padding:4px 9px;font-size:25px;" value="Stop"/>
+<input type="button" id="ScrollText" style="background:#0000FF;color:white;position:fixed;padding: 5px 30px;font-size: 50px;" value="Scroll"/>
+<input type="button" id="IncreaseScrollSpeed" style="disabled:true;background:#808080;color:black;position:fixed;left:250px;padding:4px 27px;font-size:50px;" value="   +   "/>
+<input type="button" id="DecreaseScrollSpeed" style="disabled:true;background:#808080;color:black;position:fixed;left:450px;padding:4px 27px;font-size:50px;" value="   -   "/>
+<input type="button" id="StopScrollText" style="disabled:true;background:#808080;color:white;position:fixed;left:660px;padding:4px 27px;font-size:50px;" value="Stop"/>
+<br>
+<br>
 <br>
 <br>
 <br>
 <!--<label for="html">Speed:</label>-->
-<textarea id="ScrollSpeed" name="ScrollSpeedText" rows="1" cols="5" style="resize:none;border:2px solid lime;font-size:25px;">0.02</textarea>
+<textarea id="ScrollSpeed" name="ScrollSpeedText" rows="1" cols="5" style="resize:none;border:2px solid lime;font-size:50px;">0.02</textarea>
 <br>
 <br>
-<input type="button" id="TransposeButton" style="background:#66BB55;color:white;padding:5px 10px;font-size:25px;" onclick="transposeChords()" value="Transpose"/>
-<input type="button" id="FormatButton" style="background:#800000;color:white;padding:5px 10px;font-size:25px;" onclick="formatChordsText()" value="Format"/>
-<input type="button" id="PrintText" style="background:#FF0000;color:white;padding:5px 10px;font-size:25px;" onclick="printTextArea()" value="Print"/>
+<input type="button" id="TransposeButton" style="background:#66BB55;color:white;padding:5px 30px;font-size:50px;" onclick="transposeChords()" value="Transpose"/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+<input type="button" id="FormatButton" style="background:#800000;color:white;padding:5px 30px;font-size:50px;" onclick="formatChordsText()" value="Format"/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+<input type="button" id="PrintText" style="background:#FF0000;color:white;padding:5px 30px;font-size:50px;" onclick="printTextArea()" value="Print"/>
 <br>
 <br>
 	 <script type="text/javascript">
@@ -351,19 +355,19 @@
 
 		btn_scroll.disabled=true;
 		btn_scroll.style.background="#808080";
-		btn_scroll.style.padding="4px 9px";
+		btn_scroll.style.padding="4px 27px";
 
 		btn_increase.disabled=false;
 		btn_increase.style.background="#00FFFF";
-		btn_increase.style.padding="5px 10px";
+		btn_increase.style.padding="5px 30px";
 
 		btn_decrease.disabled=false;
 		btn_decrease.style.background="#FFFF00";
-		btn_decrease.style.padding="5px 10px";
+		btn_decrease.style.padding="5px 30px";
 
 		btn_stop.disabled=false;
 		btn_stop.style.background="#FF00FF";
-		btn_stop.style.padding="5px 10px";
+		btn_stop.style.padding="5px 30px";
 
 		var int = setInterval(function() {
 							window.scrollTo(0, i);										
@@ -373,19 +377,19 @@
 						btn_stop.addEventListener("click", function() {	
 							btn_scroll.disabled=false;
 							btn_scroll.style.background="#0000FF";
-							btn_scroll.style.padding="5px 10px";
+							btn_scroll.style.padding="5px 30px";
 
 							btn_increase.disabled=true;
 							btn_increase.style.background="#808080";
-							btn_increase.style.padding="4px 9px";
+							btn_increase.style.padding="4px 27px";
 
 							btn_decrease.disabled=true;
 							btn_decrease.style.background="#808080";
-							btn_decrease.style.padding="4px 9px";
+							btn_decrease.style.padding="4px 27px";
 
 							btn_stop.disabled=true;
 							btn_stop.style.background="#808080";
-							btn_stop.style.padding="4px 9px";
+							btn_stop.style.padding="4px 27px";
 
 							clearInterval(int);
 						})
@@ -404,19 +408,19 @@
 						window.addEventListener("resize", function() {
 							btn_scroll.disabled=false;
 							btn_scroll.style.background="#0000FF";
-							btn_scroll.style.padding="5px 10px";
+							btn_scroll.style.padding="5px 30px";
 
 							btn_increase.disabled=true;
 							btn_increase.style.background="#808080";
-							btn_increase.style.padding="4px 9px";
+							btn_increase.style.padding="4px 27px";
 
 							btn_decrease.disabled=true;
 							btn_decrease.style.background="#808080";
-							btn_decrease.style.padding="4px 9px";
+							btn_decrease.style.padding="4px 27px";
 
 							btn_stop.disabled=true;
 							btn_stop.style.background="#808080";
-							btn_stop.style.padding="4px 9px";
+							btn_stop.style.padding="4px 27px";
 
 							clearInterval(int);
 						})  
@@ -436,7 +440,7 @@
 		
     </script>
   <body>
-    <textarea id="inputTextArea" name="inputText" rows="200" cols="100"></textarea>
+    <textarea id="inputTextArea" name="inputText" rows="200" cols="125"></textarea>
     <!--<textarea name="text" id="inputTextArea" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>-->
   </body>
 </html>
