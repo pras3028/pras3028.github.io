@@ -372,7 +372,28 @@
 
 		var int = setInterval(function() {
 							window.scrollTo(0, i);										
-							i += step; if(i>=20000) clearInterval(int);
+							i += step;
+
+							if(i>=4*innerHeight) 
+							{	
+								btn_scroll.disabled=false;
+								btn_scroll.style.background="#0000FF";
+								btn_scroll.style.padding="5px 30px";
+	
+								btn_increase.disabled=true;
+								btn_increase.style.background="#808080";
+								btn_increase.style.padding="4px 27px";
+
+								btn_decrease.disabled=true;
+								btn_decrease.style.background="#808080";
+								btn_decrease.style.padding="4px 27px";
+
+								btn_stop.disabled=true;
+								btn_stop.style.background="#808080";
+								btn_stop.style.padding="4px 27px";
+								clearInterval(int);
+							}
+
 		 				 }, step);
 				
 						btn_stop.addEventListener("click", function() {	
