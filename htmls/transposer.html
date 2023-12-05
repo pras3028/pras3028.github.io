@@ -22,15 +22,14 @@
 <br>
 <br>
 	 <script type="text/javascript">
-
-		var input_text = document.getElementById('inputTextArea');
 		// Add space after ')'
 		function formatChordsText() {		
-			var inputTextAreaElement = document.getElementById("inputTextArea");			
+			var inputTextAreaElement = document.getElementById("inputTextArea");
+			//inputTextAreaElement.style.background="FF0000";
 
 			var t = inputTextAreaElement.value.replaceAll(')', ') ');
 			inputTextAreaElement.value = t;
-			//input_text.style.font-size="50px";
+
 		}
 
 		////////// Flat /////////
@@ -418,15 +417,12 @@
 							clearInterval(int);
 						})
 						
-						btn_increase.addEventListener("click", function() {							
-							step = 1.5*step;
+						btn_increase.addEventListener("click", function() {
+							step = 1.5*step;							
 						})
 
-						btn_decrease.addEventListener("click", function() {	
-							if(step > 0.0)
-							{
-								step = step/1.5;
-							}
+						btn_decrease.addEventListener("click", function() {							
+							step = step/1.5;							
 						})
 
 						window.addEventListener("resize", function() {
