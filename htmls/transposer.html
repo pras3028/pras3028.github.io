@@ -6,11 +6,15 @@
 <input type="button" id="PrintText" style="background:#FF0000;color:white;" onclick="printTextArea()" value="Print"/>
 <br>
 <br>
-<input type="button" id="ScrollText" style="background:#0000FF;color:white;" value="Scroll"/>
+<input type="button" id="ScrollText" style="background:#0000FF;color:white;position:fixed;" value="Scroll"/>
+<br>
+<br>
+<input type="button" id="StopScrollText" style="background:#FF00FF;color:white;position:fixed;" value="Stop"/>
+<br>
+<label for="html">Scroll Speed: </label>
 <textarea id="scrollSpeed" name="ScrollSpeedText" rows="1" cols="5">0.1</textarea>
 <br>
 <br>
-
 	 <script type="text/javascript">
 
 		// Add space after ')'
@@ -334,19 +338,29 @@
 	  
 	  
 		// Scroll
-		var btn = document.getElementById('ScrollText');
-		btn.addEventListener("click", function() {
+		var btn_scroll = document.getElementById('ScrollText');
+		var btn_stop = document.getElementById('StopScrollText');
+
 		var step = parseFloat(document.getElementById("scrollSpeed").value);
+		//var i = step;
+		//var i = document.body.scrollTop;
+		
+		btn_scroll.addEventListener("click", function() {
+		//var step = parseFloat(document.getElementById("scrollSpeed").value);
 		var i = step;
 		var int = setInterval(function() {
-					window.scrollTo(0, i);
-					i += step; if(i>=20000) clearInterval(int);
-					}, step);
-					
-					window.addEventListener("resize", function() {
-						clearInterval(int);
-				})  
-		})
+							window.scrollTo(0, i);			
+							i += step; if(i>=20000) clearInterval(int);
+		 				 }, step);
+				
+						btn_stop.addEventListener("click", function() {
+							clearInterval(int);						
+						})
+
+						window.addEventListener("resize", function() {
+							clearInterval(int);
+						})  
+			})
 
 		// Print
 		function printTextArea() {
