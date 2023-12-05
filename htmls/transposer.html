@@ -6,7 +6,7 @@ textarea {
  //height: 100px;
  //background-color: yellow;
  background-color: #C5FDFC;
- font-size: 2em;
+ font-size: 15px;
  font-weight: bold;
  font-family: Verdana, Arial, Helvetica, sans-serif;
  border: 1px solid black;
@@ -34,11 +34,38 @@ textarea {
 <input type="button" id="PrintText" style="background:#FF0000;color:white;padding:5px 30px;font-size:50px;" onclick="printTextArea()" value="Print"/>
 <br>
 <br>
+<input type="button" id="FontSizePlus" style="background:#00FFFF;color:black;padding:5px 30px;font-size:50px;" onclick="fontSizeIncrease()" value="Font(+)"/>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+<input type="button" id="FontSizeMinus" style="background:#FFFF00;color:black;padding:5px 30px;font-size:50px;" onclick="fontSizeDecrease()" value="Font(-)"/>
+<br>
+<br>
 	 <script type="text/javascript">
+
+		function fontSizeIncrease() {		
+			var inputTextAreaElement = document.getElementById("inputTextArea");
+			//var currentfontsize = window.getComputedStyle(inputTextAreaElement).fontSize;
+			//var currentFontSize = inputTextAreaElement.style.fontSize;
+                        //var current = parseInt(currentFontSize);
+			//var current = currentfontsize
+			//var updatedFontSize = current + 10;
+			//var newfont = updatedfontsize.toString();
+			inputTextAreaElement.style.fontSize = "50.0px";
+			//inputTextAreaElement.style.fontSize = newfont+"px";
+			//inputTextAreaElement.style.fontSize = 0.5+currentFontSize;
+		}
+
+		function fontSizeDecrease() {		
+			var inputTextAreaElement = document.getElementById("inputTextArea");
+			//var currentSize = parseFloat(inputTextAreaElement.style.fontSize);
+			//currentSize = currentSize - 5;
+			//String s_increased=String.valueOf(currentSize) + 'px'; 
+			inputTextAreaElement.style.fontSize = "10.0px";
+			//inputTextAreaElement.style.fontSize = s_increased;
+		}
+
 		// Add space after ')'
 		function formatChordsText() {		
-			var inputTextAreaElement = document.getElementById("inputTextArea");			
-			$(this).css('font-size', '1em');
+			var inputTextAreaElement = document.getElementById("inputTextArea");
 
 			var t = inputTextAreaElement.value.replaceAll(')', ') ');
 			inputTextAreaElement.value = t;
