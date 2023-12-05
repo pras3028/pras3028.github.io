@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <input type="button" id="ScrollText" style="background:#0000FF;color:white;position:fixed;" value="Scroll"/>
-<input type="button" id="StopScrollText" style="background:#FF00FF;color:white;position:fixed;left:70px;" value="Stop"/>
+<input type="button" id="IncreaseScrollSpeed" style="background:#00FFFF;color:black;position:fixed;left:70px;" value="  +  "/>
+<input type="button" id="DecreaseScrollSpeed" style="background:#FFFF00;color:black;position:fixed;left:125px;" value="  -  "/>
+<input type="button" id="StopScrollText" style="background:#FF00FF;color:white;position:fixed;left:175px;" value="Stop"/>
 <br>
 <br>
 <!--<label for="html">Speed:</label>-->
-<textarea id="scrollSpeed" name="ScrollSpeedText" rows="1" cols="5" style="resize:none;border:2px solid lime;">0.02</textarea>
+<textarea id="ScrollSpeed" name="ScrollSpeedText" rows="1" cols="5" style="resize:none;border:2px solid lime;">0.02</textarea>
 <br>
 <br>
 <input type="button" id="TransposeButton" style="background:#66BB55;color:white;" onclick="transposeChords()" value="Transpose"/>
@@ -338,19 +340,32 @@
 		// Scroll
 		var btn_scroll = document.getElementById('ScrollText');
 		var btn_stop = document.getElementById('StopScrollText');
+		var btn_increase = document.getElementById('IncreaseScrollSpeed');
+		var btn_decrease = document.getElementById('DecreaseScrollSpeed');
 
 		btn_scroll.addEventListener("click", function() {
-		var step = parseFloat(document.getElementById("scrollSpeed").value);
+		var step = parseFloat(document.getElementById("ScrollSpeed").value);
 		//var i = step;
 		var i = window.pageYOffset;
 
 		var int = setInterval(function() {
-							window.scrollTo(0, i);			
+							window.scrollTo(0, i);										
 							i += step; if(i>=20000) clearInterval(int);
 		 				 }, step);
 				
-						btn_stop.addEventListener("click", function() {
+						btn_stop.addEventListener("click", function() {							
 							clearInterval(int);
+						})
+						
+						btn_increase.addEventListener("click", function() {							
+							step = 1.5*step;
+						})
+
+						btn_decrease.addEventListener("click", function() {	
+							if(step > 0.0)
+							{
+								step = step/1.5;
+							}
 						})
 
 						window.addEventListener("resize", function() {
