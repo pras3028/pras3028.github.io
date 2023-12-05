@@ -23,12 +23,14 @@
 <br>
 	 <script type="text/javascript">
 
+		var input_text = document.getElementById('inputTextArea');
 		// Add space after ')'
 		function formatChordsText() {		
 			var inputTextAreaElement = document.getElementById("inputTextArea");			
 
 			var t = inputTextAreaElement.value.replaceAll(')', ') ');
-			inputTextAreaElement.value = t;			
+			inputTextAreaElement.value = t;
+			//input_text.style.font-size="50px";
 		}
 
 		////////// Flat /////////
@@ -374,7 +376,7 @@
 							window.scrollTo(0, i);										
 							i += step;
 
-							if(i>=4*innerHeight) 
+							if(0)//(i>=4*innerHeight) 
 							{	
 								btn_scroll.disabled=false;
 								btn_scroll.style.background="#0000FF";
@@ -462,7 +464,7 @@
 		
     </script>
   <body>
-    <textarea id="inputTextArea" name="inputText" rows="200" cols="125"></textarea>
+    <textarea id="inputTextArea" name="inputText" rows="150" cols="80" style="font-size:50px"></textarea>
     <!--<textarea name="text" id="inputTextArea" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>-->
   </body>
 </html>
