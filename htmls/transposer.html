@@ -1,5 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+<style type="text/css">
+textarea {
+ //width: 300px;
+ //height: 100px;
+ //background-color: yellow;
+ background-color: #C5FDFC;
+ font-size: 3em;
+ font-weight: bold;
+ font-family: Verdana, Arial, Helvetica, sans-serif;
+ border: 1px solid black;
+}
+</style>
+
 <input type="button" id="ScrollText" style="background:#0000FF;color:white;position:fixed;top:10px;left:8px;padding:5px 30px;font-size:50px;" value="Scroll"/>
 <input type="button" id="IncreaseScrollSpeed" style="disabled:true;background:#808080;color:black;position:fixed;top:10px;left:250px;padding:4px 27px;font-size:50px;" value="   +   "/>
 <input type="button" id="DecreaseScrollSpeed" style="disabled:true;background:#808080;color:black;position:fixed;top:10px;left:450px;padding:4px 27px;font-size:50px;" value="   -   "/>
@@ -24,8 +37,8 @@
 	 <script type="text/javascript">
 		// Add space after ')'
 		function formatChordsText() {		
-			var inputTextAreaElement = document.getElementById("inputTextArea");
-			//inputTextAreaElement.style.background="FF0000";
+			var inputTextAreaElement = document.getElementById("inputTextArea");			
+			$(this).css('font-size', '1em');
 
 			var t = inputTextAreaElement.value.replaceAll(')', ') ');
 			inputTextAreaElement.value = t;
@@ -460,7 +473,7 @@
 		
     </script>
   <body>
-    <textarea id="inputTextArea" name="inputText" rows="150" cols="80" style="font-size:50px"></textarea>
+    <textarea id="inputTextArea" name="inputText" rows="150" cols="80"></textarea>
     <!--<textarea name="text" id="inputTextArea" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>-->
   </body>
 </html>
