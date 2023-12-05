@@ -3,7 +3,7 @@
 <input type="button" id="ScrollText" style="background:#0000FF;color:white;position:fixed;  padding: 5px 10px;font-size: 25px;" value="Scroll"/>
 <input type="button" id="IncreaseScrollSpeed" style="disabled:true;background:#808080;color:black;position:fixed;left:120px;padding:5px 10px;font-size:25px;" value="   +   "/>
 <input type="button" id="DecreaseScrollSpeed" style="disabled:true;background:#808080;color:black;position:fixed;left:220px;padding:5px 10px;font-size:25px;" value="   -   "/>
-<input type="button" id="StopScrollText" style="background:#FF00FF;color:white;position:fixed;left:320px;padding:5px 10px;font-size:25px;" value="Stop"/>
+<input type="button" id="StopScrollText" style="background:#FF00FF;color:white;position:fixed;left:320px;padding:4px 9px;font-size:25px;" value="Stop"/>
 <br>
 <br>
 <br>
@@ -351,12 +351,15 @@
 
 		btn_scroll.disabled=true;
 		btn_scroll.style.background="#808080";
+		btn_scroll.style.padding="4px 9px";
 
 		btn_increase.disabled=false;
 		btn_increase.style.background="#00FFFF";
 
 		btn_decrease.disabled=false;
 		btn_decrease.style.background="#FFFF00";
+
+		btn_stop.style.padding="5px 10px";
 
 		var int = setInterval(function() {
 							window.scrollTo(0, i);										
@@ -366,12 +369,15 @@
 						btn_stop.addEventListener("click", function() {	
 							btn_scroll.disabled=false;
 							btn_scroll.style.background="#0000FF";
+							btn_scroll.style.padding="5px 10px";
 
 							btn_increase.disabled=true;
 							btn_increase.style.background="#808080";
 
 							btn_decrease.disabled=true;
 							btn_decrease.style.background="#808080";
+
+							btn_stop.style.padding="4px 9px";
 
 							clearInterval(int);
 						})
@@ -396,6 +402,8 @@
 
 							btn_decrease.disabled=true;
 							btn_decrease.style.background="#808080";
+
+							btn_stop.style.padding="4px 9px";
 
 							clearInterval(int);
 						})  
