@@ -7,9 +7,9 @@ textarea {
  //background-color: yellow;
  background-color: #C5FDFC;
  font-size: 15px;
- font-weight: bold;
+ //font-weight: bold;
  font-family: Verdana, Arial, Helvetica, sans-serif;
- border: 1px solid black;
+ //border: 1px solid black;
 }
 </style>
 
@@ -24,7 +24,7 @@ textarea {
 <br>
 <div class="formfield" style="display:flex;align-items:center;">
 <label style="font-size: 50px;">Speed:</label>
-<textarea id="ScrollSpeed" name="ScrollSpeedText" rows="1" cols="5" style="resize:none;border:2px solid lime;font-size:50px;">0.02</textarea>
+<textarea id="ScrollSpeed" name="ScrollSpeedText" rows="1" cols="5" style="resize:none;border:2px solid lime;font-size:50px;">0.05</textarea>
 </div>
 <br>
 <input type="button" id="TransposeButton" style="background:#66BB55;color:white;padding:5px 30px;font-size:50px;" onclick="transposeChords()" value="Transpose"/>
@@ -45,14 +45,14 @@ textarea {
 			var inputTextAreaElement = document.getElementById("inputTextArea");
 			const val = window.getComputedStyle(inputTextAreaElement).getPropertyValue("font-size"); // gets font-size in string format
 			const currentSize = parseFloat(val); // removes 'px' 
-			inputTextAreaElement.style.fontSize = currentSize + 2 + "px"; 
+			inputTextAreaElement.style.fontSize = currentSize + 5 + "px"; 
 		}
 
 		function fontSizeDecrease() {		
 			var inputTextAreaElement = document.getElementById("inputTextArea");
 			const val = window.getComputedStyle(inputTextAreaElement).getPropertyValue("font-size"); // gets font-size in string format
 			const currentSize = parseFloat(val); // removes 'px' 
-			inputTextAreaElement.style.fontSize = currentSize - 2 + "px";
+			inputTextAreaElement.style.fontSize = currentSize - 5 + "px";
 		}
 
 		// Add space after ')'
@@ -458,25 +458,25 @@ textarea {
 							document.getElementById("ScrollSpeed").value = parseFloat(step).toFixed(2);	
 						})
 
-						window.addEventListener("resize", function() {
-							btn_scroll.disabled=false;
-							btn_scroll.style.background="#0000FF";
-							btn_scroll.style.padding="5px 30px";
+						//window.addEventListener("resize", function() {
+							//btn_scroll.disabled=false;
+							//btn_scroll.style.background="#0000FF";
+							//btn_scroll.style.padding="5px 30px";
 
-							btn_increase.disabled=true;
-							btn_increase.style.background="#808080";
-							btn_increase.style.padding="4px 27px";
+							//btn_increase.disabled=true;
+							//btn_increase.style.background="#808080";
+							//btn_increase.style.padding="4px 27px";
 
-							btn_decrease.disabled=true;
-							btn_decrease.style.background="#808080";
-							btn_decrease.style.padding="4px 27px";
+							//btn_decrease.disabled=true;
+							//btn_decrease.style.background="#808080";
+							//btn_decrease.style.padding="4px 27px";
 
-							btn_stop.disabled=true;
-							btn_stop.style.background="#808080";
-							btn_stop.style.padding="4px 27px";
+							//btn_stop.disabled=true;
+							//btn_stop.style.background="#808080";
+							//btn_stop.style.padding="4px 27px";
 
-							clearInterval(int);
-						})  
+							//clearInterval(int);
+						//})  
 			})
 
 		// Print
