@@ -64,7 +64,7 @@ textarea {
 		function formatChordsText() {		
 			var inputTextAreaElement = document.getElementById("inputTextArea");
 
-			var t = inputTextAreaElement.value.replaceAll(')', ') ');
+			var t = inputTextAreaElement.value.replaceAll(")", ") ");
 			inputTextAreaElement.value = t;
 		}
 
@@ -363,7 +363,7 @@ textarea {
 			var inputTextAreaElement = document.getElementById("inputTextArea");
 			
 			// Method 1: Start
-			var t = inputTextAreaElement.value.replaceAll('Cm', 'Dm');
+			var t = inputTextAreaElement.value.replaceAll("Cm", "Dm");
 			inputTextAreaElement.value = t;
 			// Method 1: End
 			
@@ -371,7 +371,7 @@ textarea {
             		//var x = document.createElement("TEXTAREA");
 			//x.cols = 100;
 			//x.rows = 200;			
-			//var tUpdated = inputTextAreaElement.value.replaceAll('cm', 'dm');
+			//var tUpdated = inputTextAreaElement.value.replaceAll("cm", "dm");
 			//var t = document.createTextNode(tUpdated);			
 			//x.appendChild(t);
 			//document.body.appendChild(x);
@@ -381,10 +381,10 @@ textarea {
 	  
 	  
 		// Scroll
-		var btn_scroll = document.getElementById('ScrollText');
-		var btn_stop = document.getElementById('StopScrollText');
-		var btn_increase = document.getElementById('IncreaseScrollSpeed');
-		var btn_decrease = document.getElementById('DecreaseScrollSpeed');
+		var btn_scroll = document.getElementById("ScrollText");
+		var btn_stop = document.getElementById("StopScrollText");
+		var btn_increase = document.getElementById("IncreaseScrollSpeed");
+		var btn_decrease = document.getElementById("DecreaseScrollSpeed");
 
 		btn_scroll.addEventListener("click", function() {
 		var step = parseFloat(document.getElementById("ScrollSpeed").value);
@@ -486,16 +486,16 @@ textarea {
 
 		// Reset Scroll Speed
 		function resetScrollSpeedFn() {		
-			document.getElementById("ScrollSpeed").value = '0.05';
+			document.getElementById("ScrollSpeed").value = "0.05";
 		}
 
 		// Print
 		function printTextArea() {
-		        childWindow = window.open('','childWindow','location=yes, menubar=yes, toolbar=yes');
+		        childWindow = window.open("","childWindow","location=yes, menubar=yes, toolbar=yes");
 		        childWindow.document.open();
-		        childWindow.document.write('<html><head></head><body>');
+		        childWindow.document.write("<html><head></head><body>");
 		        childWindow.document.write(document.getElementById("inputTextArea").value.replace(/\n/gi,'<br>'));
-		        childWindow.document.write('</body></html>');
+		        childWindow.document.write("</body></html>");
 		        childWindow.print();
 		        childWindow.document.close();
 		        childWindow.close();
@@ -504,16 +504,13 @@ textarea {
 		// On input text
 		function onInputText() {
 			var inputTextAreaElement = document.getElementById("inputTextArea");
-			inputTextAreaElement.style.background='#FFFFFF';
-			inputTextAreaElement.style.height = 'auto'; 
-		        inputTextAreaElement.style.height = (inputTextAreaElement.scrollHeight) + 'px';
+			inputTextAreaElement.style.background="#FFFFFF";
+			inputTextAreaElement.style.height = "auto"; 
+		        inputTextAreaElement.style.height = (inputTextAreaElement.scrollHeight) + "px";
 		      }
 
     </script>
   <body>
-    <!--<textarea id="inputTextArea" name="inputText" style="height:auto;width:auto;"></textarea>-->
-    <!--<textarea id="inputTextArea" name="inputText" rows="150" cols="80"></textarea>-->
-    <!--<textarea name="text" id="inputTextArea" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>-->
-    <textarea id="inputTextArea" oninput="onInputText()" rows="10" cols="55"></textarea>
+    <textarea id="inputTextArea" oninput="onInputText()" rows="10" cols="55" placeholder="Add text with chords here..."></textarea>
   </body>
 </html>
