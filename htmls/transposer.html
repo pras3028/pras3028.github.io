@@ -507,10 +507,12 @@ textarea {
 			inputTextAreaElement.style.background="#FFFFFF";
 			inputTextAreaElement.style.height = "auto"; 
 		        inputTextAreaElement.style.height = (inputTextAreaElement.scrollHeight) + "px";
+			inputTextAreaElement.style.width = "auto"; 
+		        inputTextAreaElement.style.width = (inputTextAreaElement.scrollWidth) + "px";
 		      }
 
     </script>
   <body>
-    <textarea id="inputTextArea" oninput="onInputText()" rows="10" cols="55" placeholder="Add text with chords here..."></textarea>
+    <textarea id="inputTextArea" oninput="onInputText()" rows="10" cols="20" placeholder="Add text with chords here..." wrap = "off"></textarea>
   </body>
 </html>
