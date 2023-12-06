@@ -45,14 +45,14 @@ textarea {
 			var inputTextAreaElement = document.getElementById("inputTextArea");
 			const val = window.getComputedStyle(inputTextAreaElement).getPropertyValue("font-size"); // gets font-size in string format
 			const currentSize = parseFloat(val); // removes 'px' 
-			inputTextAreaElement.style.fontSize = currentSize + 2 + "px"; 
+			inputTextAreaElement.style.fontSize = currentSize + 5 + "px"; 
 		}
 
 		function fontSizeDecrease() {		
 			var inputTextAreaElement = document.getElementById("inputTextArea");
 			const val = window.getComputedStyle(inputTextAreaElement).getPropertyValue("font-size"); // gets font-size in string format
 			const currentSize = parseFloat(val); // removes 'px' 
-			inputTextAreaElement.style.fontSize = currentSize - 2 + "px";
+			inputTextAreaElement.style.fontSize = currentSize - 5 + "px";
 		}
 
 		// Add space after ')'
