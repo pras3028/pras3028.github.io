@@ -449,11 +449,13 @@ textarea {
 						})
 						
 						btn_increase.addEventListener("click", function() {
-							step = 1.5*step;							
+							step = 1.5*step;			
+							document.getElementById("ScrollSpeed").value = parseFloat(step).toFixed(2);			
 						})
 
 						btn_decrease.addEventListener("click", function() {							
-							step = step/1.5;							
+							step = step/1.5;						
+							document.getElementById("ScrollSpeed").value = parseFloat(step).toFixed(2);	
 						})
 
 						window.addEventListener("resize", function() {
