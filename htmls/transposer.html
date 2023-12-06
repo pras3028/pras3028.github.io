@@ -49,6 +49,7 @@ textarea {
 			const val = window.getComputedStyle(inputTextAreaElement).getPropertyValue("font-size"); // gets font-size in string format
 			const currentSize = parseFloat(val); // removes 'px' 
 			inputTextAreaElement.style.fontSize = currentSize + 5 + "px"; 
+			onInputText();
 		}
 
 		function fontSizeDecrease() {		
@@ -56,6 +57,7 @@ textarea {
 			const val = window.getComputedStyle(inputTextAreaElement).getPropertyValue("font-size"); // gets font-size in string format
 			const currentSize = parseFloat(val); // removes 'px' 
 			inputTextAreaElement.style.fontSize = currentSize - 5 + "px";
+			onInputText();
 		}
 
 		// Add space after ')'
@@ -498,10 +500,20 @@ textarea {
 		        childWindow.document.close();
 		        childWindow.close();
 		      }
-		
+
+		// On input text
+		function onInputText() {
+			var inputTextAreaElement = document.getElementById("inputTextArea");
+			inputTextAreaElement.style.background='#FFFFFF';
+			inputTextAreaElement.style.height = 'auto'; 
+		        inputTextAreaElement.style.height = (inputTextAreaElement.scrollHeight) + 'px';
+		      }
+
     </script>
   <body>
-    <textarea id="inputTextArea" name="inputText" rows="150" cols="80"></textarea>
+    <!--<textarea id="inputTextArea" name="inputText" style="height:auto;width:auto;"></textarea>-->
+    <!--<textarea id="inputTextArea" name="inputText" rows="150" cols="80"></textarea>-->
     <!--<textarea name="text" id="inputTextArea" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>-->
+    <textarea id="inputTextArea" oninput="onInputText()" rows="10" cols="55"></textarea>
   </body>
 </html>
