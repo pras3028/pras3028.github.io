@@ -40,6 +40,8 @@ textarea {
 <input type="button" id="FontSizePlus" style="background:#00FFFF;color:black;padding:5px 30px;font-size:50px;" onclick="fontSizeIncrease()" value="Font(+)"/>
 &nbsp &nbsp &nbsp &nbsp
 <input type="button" id="FontSizeMinus" style="background:#FFFF00;color:black;padding:5px 30px;font-size:50px;" onclick="fontSizeDecrease()" value="Font(-)"/>
+&nbsp &nbsp &nbsp &nbsp
+<input type="button" id="FitToWidthFont" style="background:#FFA500;color:black;padding:5px 30px;font-size:50px;" onclick="fontSizeFitToWidth()" value="Fit"/>
 <br>
 <br>
 	 <script type="text/javascript">
@@ -60,12 +62,26 @@ textarea {
 			onInputText();
 		}
 
+		function fontSizeFitToWidth() {		
+			var inputTextAreaElement = document.getElementById("inputTextArea");
+
+			while(parseFloat(inputTextAreaElement.style.width) < 0.95*(window.innerWidth))
+			{
+				fontSizeIncrease();
+			}			
+		}
+
+
 		// Add space after ')'
 		function formatChordsText() {		
 			var inputTextAreaElement = document.getElementById("inputTextArea");
 
 			var t = inputTextAreaElement.value.replaceAll(")", ") ");
 			inputTextAreaElement.value = t;
+			//while(parseFloat(inputTextAreaElement.style.width) < 0.95*(window.innerWidth))
+			//{
+			//	fontSizeIncrease();
+			//}
 		}
 
 		////////// Flat /////////
