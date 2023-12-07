@@ -46,31 +46,35 @@ textarea {
 <br>
 	 <script type="text/javascript">
 
-		function fontSizeIncrease() {		
+		function fontSizeIncrease(step=5) {		
 			var inputTextAreaElement = document.getElementById("inputTextArea");
 			const val = window.getComputedStyle(inputTextAreaElement).getPropertyValue("font-size"); // gets font-size in string format
 			const currentSize = parseFloat(val); // removes 'px' 
-			inputTextAreaElement.style.fontSize = currentSize + 5 + "px"; 
+			inputTextAreaElement.style.fontSize = currentSize + step + "px"; 
 			onInputText();
 		}
 
-		function fontSizeDecrease() {		
+		function fontSizeDecrease(step=5) {		
 			var inputTextAreaElement = document.getElementById("inputTextArea");
 			const val = window.getComputedStyle(inputTextAreaElement).getPropertyValue("font-size"); // gets font-size in string format
 			const currentSize = parseFloat(val); // removes 'px' 
-			inputTextAreaElement.style.fontSize = currentSize - 5 + "px";
+			inputTextAreaElement.style.fontSize = currentSize - step + "px";
 			onInputText();
 		}
 
 		function fontSizeFitToWidth() {		
 			var inputTextAreaElement = document.getElementById("inputTextArea");
 
-			while(parseFloat(inputTextAreaElement.style.width) < 0.95*(window.innerWidth))
+			while(parseFloat(inputTextAreaElement.style.width) < 0.97*(window.innerWidth))
 			{
-				fontSizeIncrease();
+				fontSizeIncrease(1);
 			}			
 		}
 
+		var inputTextAreaElement = document.getElementById("inputTextArea");
+		inputTextAreaElement.addEventListener("paste", function() {	
+							fontSizeFitToWidth();
+						})
 
 		// Add space after ')'
 		function formatChordsText() {		
@@ -78,10 +82,6 @@ textarea {
 
 			var t = inputTextAreaElement.value.replaceAll(")", ") ");
 			inputTextAreaElement.value = t;
-			//while(parseFloat(inputTextAreaElement.style.width) < 0.95*(window.innerWidth))
-			//{
-			//	fontSizeIncrease();
-			//}
 		}
 
 		////////// Flat /////////
