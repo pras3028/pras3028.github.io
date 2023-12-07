@@ -71,11 +71,6 @@ textarea {
 			}			
 		}
 
-		var inputTextAreaElement = document.getElementById("inputTextArea");
-		inputTextAreaElement.addEventListener("paste", function() {	
-							fontSizeFitToWidth();
-						})
-
 		// Add space after ')'
 		function formatChordsText() {		
 			var inputTextAreaElement = document.getElementById("inputTextArea");
@@ -529,6 +524,6 @@ textarea {
 
     </script>
   <body>
-    <textarea id="inputTextArea" oninput="onInputText()" rows="10" cols="20" placeholder="Add text with chords here..." wrap = "off"></textarea>
+    <textarea id="inputTextArea" oninput="onInputText()" rows="10" cols="20" placeholder="Add text with chords here..." wrap="off"></textarea>
   </body>
 </html>
