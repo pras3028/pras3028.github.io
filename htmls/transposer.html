@@ -63,13 +63,35 @@ textarea {
 			onInputText();
 		}
 
-		function fontSizeFitToWidth() {		
+		function fontSizeFitToWidth() {	
+
 			var inputTextAreaElement = document.getElementById("inputTextArea");
 
-			while(parseFloat(inputTextAreaElement.style.width) < 0.97*(window.innerWidth))
+			const currentTextWidth = inputTextAreaElement.style.width;
+			const windowWidth = window.innerWidth;
+
+			var isSmall = true;
+
+			if(parseFloat(currentTextWidth) > windowWidth)
 			{
-				fontSizeIncrease(1);
-			}			
+				isSmall = false;
+			}
+
+
+			if(isSmall)
+			{
+				while(parseFloat(inputTextAreaElement.style.width) < 0.95*windowWidth)
+				{
+					fontSizeIncrease(1);
+				}
+			}
+			else
+			{
+				while(parseFloat(inputTextAreaElement.style.width) > 0.95*windowWidth)
+				{
+					fontSizeDecrease(1);
+				}
+			}
 		}
 
 		// Add space after ')'
