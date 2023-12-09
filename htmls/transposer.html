@@ -88,7 +88,12 @@ textarea {
 			{
 				while(parseFloat(inputTextAreaElement.style.width) > 0.95*windowWidth)
 				{
-					fontSizeDecrease(1);
+					fontSizeDecrease(2);
+				}
+
+				while(parseFloat(inputTextAreaElement.style.width) < 0.95*windowWidth)
+				{
+					fontSizeIncrease(1);
 				}
 			}
 		}
