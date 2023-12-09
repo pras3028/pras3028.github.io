@@ -31,9 +31,9 @@ textarea {
 </div>
 <br>
 <input type="button" id="TransposeButton" style="background:#66BB55;color:white;padding:5px 30px;font-size:50px;" onclick="transposeChords()" value="Transpose"/>
-&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
-<input type="button" id="FormatButton" style="background:#800000;color:white;padding:5px 30px;font-size:50px;" onclick="formatChordsText()" value="Format"/>
-&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+&nbsp &nbsp &nbsp &nbsp
+<!--<input type="button" id="FormatButton" style="background:#800000;color:white;padding:5px 30px;font-size:50px;" onclick="formatChordsText()" value="Format"/>-->
+<!--&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp-->
 <input type="button" id="PrintText" style="background:#FF0000;color:white;padding:5px 30px;font-size:50px;" onclick="printTextArea()" value="Print"/>
 <br>
 <br>
@@ -214,6 +214,13 @@ textarea {
 		function transposeUp(inputText){
 			var inputTextCpy = inputText;
 
+            // Add space after ")", "]"
+			inputTextCpy = inputTextCpy.replaceAll(") ",")");
+			inputTextCpy = inputTextCpy.replaceAll(")",") ");
+			
+			inputTextCpy = inputTextCpy.replaceAll("] ","]");
+			inputTextCpy = inputTextCpy.replaceAll("]","] ");
+			
 			// Add space after \n
 			inputTextCpy = inputTextCpy.replaceAll("\n"," \n");
 
@@ -373,10 +380,11 @@ textarea {
      				inputTextCpy = inputTextCpy.replaceAll(chords_minor_7_big_brackets[i], chords_minor_7_big_brackets_no_space[(i+1)%chords_minor_7_big_brackets_no_space.length]+"@@");
 			}
 
+           
 			inputTextCpy = inputTextCpy.replaceAll("@@", " ");
 			inputTextCpy = inputTextCpy.replaceAll(" \n","\n");
 
-		        return inputTextCpy;
+		    return inputTextCpy;
 		}
 
 		// Update Text
@@ -387,7 +395,8 @@ textarea {
 
                         t = transposeUp(t);
 
-			inputTextAreaElement.value = t;			
+			inputTextAreaElement.value = t;	
+            fontSizeFitToWidth();			
 		}
 
 		// Replace Cm with Dm
