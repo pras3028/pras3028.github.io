@@ -30,11 +30,13 @@ textarea {
 <input type="button" id="RestScrollSpeed" style="background:#FFA500;color:black;padding:2px 24px;font-size:50px;" onclick="resetScrollSpeedFn()" value="Reset"/>
 </div>
 <br>
-<input type="button" id="TransposeButton" style="background:#66BB55;color:white;padding:5px 30px;font-size:50px;" onclick="transposeChords()" value="Transpose"/>
+<input type="button" id="TransposeButton" style="background:#66BB55;color:black;padding:5px 30px;font-size:50px;" onclick="transposeUpChords()" value="Trans(+)"/>
+&nbsp &nbsp &nbsp &nbsp
+<input type="button" id="TransposeNegButton" style="background:#EB87F3;color:black;padding:5px 30px;font-size:50px;" onclick="transposeDownChords()" value="Trans(-)"/>
 &nbsp &nbsp &nbsp &nbsp
 <!--<input type="button" id="FormatButton" style="background:#800000;color:white;padding:5px 30px;font-size:50px;" onclick="formatChordsText()" value="Format"/>-->
 <!--&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp-->
-<input type="button" id="PrintText" style="background:#FF0000;color:white;padding:5px 30px;font-size:50px;" onclick="printTextArea()" value="Print"/>
+<input type="button" id="PrintText" style="background:#FF0000;color:black;padding:5px 30px;font-size:50px;" onclick="printTextArea()" value="Print"/>
 <br>
 <br>
 <input type="button" id="FontSizePlus" style="background:#00FFFF;color:black;padding:5px 30px;font-size:50px;" onclick="fontSizeIncrease()" value="Font(+)"/>
@@ -215,11 +217,11 @@ textarea {
 		const chords_minor_7_big_brackets_no_space = ["[Am7]", "[A#m7]", "[Bm7]", "[Cm7]", "[C#m7]", "[Dm7]", "[D#m7]", "[Em7]", "[Fm7]", "[F#m7]", "[Gm7]", "[G#m7]"];
 
 
-		// TransposeUp
-		function transposeUp(inputText){
+		// Transpose with shift
+		function transposeChords(inputText, shift = 1){
 			var inputTextCpy = inputText;
 
-            // Add space after ")", "]"
+            		// Add space after ")", "]"
 			inputTextCpy = inputTextCpy.replaceAll(") ",")");
 			inputTextCpy = inputTextCpy.replaceAll(")",") ");
 			
@@ -310,79 +312,92 @@ textarea {
 			////////// Regular /////////
 			////// No Brackets /////			
 			// Major
-                        for(let i =0; i<chords_major.length; i++)
+			var vec_length;
+			vec_length = chords_major.length; 
+                        for(let i =0; i<vec_length; i++)
 			{
-     				inputTextCpy = inputTextCpy.replaceAll(chords_major[i], chords_major_no_space[(i+1)%chords_major_no_space.length]+"@@");
+     				inputTextCpy = inputTextCpy.replaceAll(chords_major[i], chords_major_no_space[(i+shift+vec_length)%vec_length]+"@@");
 			}
 
 			// Minor
-			for(let i =0; i<chords_minor.length; i++)
+			vec_length = chords_minor.length; 
+			for(let i =0; i<vec_length; i++)
 			{
-     				inputTextCpy = inputTextCpy.replaceAll(chords_minor[i], chords_minor_no_space[(i+1)%chords_minor_no_space.length]+"@@");
+     				inputTextCpy = inputTextCpy.replaceAll(chords_minor[i], chords_minor_no_space[(i+shift+vec_length)%vec_length]+"@@");
 			}
 
 			// Major 7
-                        for(let i =0; i<chords_major_7.length; i++)
+			vec_length = chords_major_7.length; 
+                        for(let i =0; i<vec_length; i++)
 			{
-     				inputTextCpy = inputTextCpy.replaceAll(chords_major_7[i], chords_major_7_no_space[(i+1)%chords_major_7_no_space.length]+"@@");
+     				inputTextCpy = inputTextCpy.replaceAll(chords_major_7[i], chords_major_7_no_space[(i+shift+vec_length)%vec_length]+"@@");
 			}
 
 			// Minor 7
-			for(let i =0; i<chords_minor_7.length; i++)
+			vec_length = chords_minor_7.length; 
+			for(let i =0; i<vec_length; i++)
 			{
-     				inputTextCpy = inputTextCpy.replaceAll(chords_minor_7[i], chords_minor_7_no_space[(i+1)%chords_minor_7_no_space.length]+"@@");
+     				inputTextCpy = inputTextCpy.replaceAll(chords_minor_7[i], chords_minor_7_no_space[(i+shift+vec_length)%vec_length]+"@@");
 			}
 
 			////////// Regular /////////
 			////// Small Brackets /////
 			// Major
-                        for(let i =0; i<chords_major_small_brackets.length; i++)
+			vec_length = chords_major_small_brackets.length; 
+                        for(let i =0; i<vec_length; i++)
 			{
-     				inputTextCpy = inputTextCpy.replaceAll(chords_major_small_brackets[i], chords_major_small_brackets_no_space[(i+1)%chords_major_small_brackets_no_space.length]+"@@");
+     				inputTextCpy = inputTextCpy.replaceAll(chords_major_small_brackets[i], chords_major_small_brackets_no_space[(i+shift+vec_length)%vec_length]+"@@");
 			}
 
 			// Minor
-			for(let i =0; i<chords_minor_small_brackets.length; i++)
+			vec_length = chords_minor_small_brackets.length; 
+			for(let i =0; i<vec_length; i++)
 			{
-     				inputTextCpy = inputTextCpy.replaceAll(chords_minor_small_brackets[i], chords_minor_small_brackets_no_space[(i+1)%chords_minor_small_brackets_no_space.length]+"@@");
+     				inputTextCpy = inputTextCpy.replaceAll(chords_minor_small_brackets[i], chords_minor_small_brackets_no_space[(i+shift+vec_length)%vec_length]+"@@");
 			}
 
 			// Major 7
-                        for(let i =0; i<chords_major_7_small_brackets.length; i++)
+			vec_length = chords_major_7_small_brackets.length; 
+                        for(let i =0; i<vec_length; i++)
 			{
-     				inputTextCpy = inputTextCpy.replaceAll(chords_major_7_small_brackets[i], chords_major_7_small_brackets_no_space[(i+1)%chords_major_7_small_brackets_no_space.length]+"@@");
+     				inputTextCpy = inputTextCpy.replaceAll(chords_major_7_small_brackets[i], chords_major_7_small_brackets_no_space[(i+shift+vec_length)%vec_length]+"@@");
 			}
 
 			// Minor 7
-			for(let i =0; i<chords_minor_7_small_brackets.length; i++)
+			vec_length = chords_minor_7_small_brackets.length; 
+			for(let i =0; i<vec_length; i++)
 			{
-     				inputTextCpy = inputTextCpy.replaceAll(chords_minor_7[i], chords_minor_7_small_brackets_no_space[(i+1)%chords_minor_7_small_brackets_no_space.length]+"@@");
+     				inputTextCpy = inputTextCpy.replaceAll(chords_minor_7[i], chords_minor_7_small_brackets_no_space[(i+shift+vec_length)%vec_length]+"@@");
 			}
 
 			////////// Regular /////////
 			////// Big Brackets /////			
 			// Major
-                        for(let i =0; i<chords_major_big_brackets.length; i++)
+			vec_length = chords_major_big_brackets.length; 
+                        for(let i =0; i<vec_length; i++)
 			{
-     				inputTextCpy = inputTextCpy.replaceAll(chords_major_big_brackets[i], chords_major_big_brackets_no_space[(i+1)%chords_major_big_brackets_no_space.length]+"@@");
+     				inputTextCpy = inputTextCpy.replaceAll(chords_major_big_brackets[i], chords_major_big_brackets_no_space[(i+shift+vec_length)%vec_length]+"@@");
 			}
 
 			// Minor
-			for(let i =0; i<chords_minor_big_brackets.length; i++)
+			vec_length = chords_minor_big_brackets.length; 
+			for(let i =0; i<vec_length; i++)
 			{
-     				inputTextCpy = inputTextCpy.replaceAll(chords_minor_big_brackets[i], chords_minor_big_brackets_no_space[(i+1)%chords_minor_big_brackets_no_space.length]+"@@");
+     				inputTextCpy = inputTextCpy.replaceAll(chords_minor_big_brackets[i], chords_minor_big_brackets_no_space[(i+shift+vec_length)%vec_length]+"@@");
 			}
 
 			// Major 7
-                        for(let i =0; i<chords_major_7.length; i++)
+			vec_length = chords_major_7.length; 
+                        for(let i =0; i<vec_length; i++)
 			{
-     				inputTextCpy = inputTextCpy.replaceAll(chords_major_7_big_brackets[i], chords_major_7_big_brackets_no_space[(i+1)%chords_major_7_big_brackets_no_space.length]+"@@");
+     				inputTextCpy = inputTextCpy.replaceAll(chords_major_7_big_brackets[i], chords_major_7_big_brackets_no_space[(i+shift+vec_length)%vec_length]+"@@");
 			}
 
 			// Minor 7
-			for(let i =0; i<chords_minor_7.length; i++)
+			vec_length = chords_minor_7.length; 
+			for(let i =0; i<vec_length; i++)
 			{
-     				inputTextCpy = inputTextCpy.replaceAll(chords_minor_7_big_brackets[i], chords_minor_7_big_brackets_no_space[(i+1)%chords_minor_7_big_brackets_no_space.length]+"@@");
+     				inputTextCpy = inputTextCpy.replaceAll(chords_minor_7_big_brackets[i], chords_minor_7_big_brackets_no_space[(i+shift+vec_length)%vec_length]+"@@");
 			}
 
            
@@ -392,16 +407,26 @@ textarea {
 		    return inputTextCpy;
 		}
 
-		// Update Text
-		function transposeChords() {
+		// Transpose up
+		function transposeUpChords() {
 			var inputTextAreaElement = document.getElementById("inputTextArea");
 
 			var t = inputTextAreaElement.value;
 
-                        t = transposeUp(t);
+                        t = transposeChords(t, 1);
 
-			inputTextAreaElement.value = t;	
-            //fontSizeFitToWidth();			
+			inputTextAreaElement.value = t;				
+		}
+
+		// Update Text Transpose down
+		function transposeDownChords() {
+			var inputTextAreaElement = document.getElementById("inputTextArea");
+
+			var t = inputTextAreaElement.value;
+
+                        t = transposeChords(t, -1);
+
+			inputTextAreaElement.value = t;				
 		}
 
 		// Replace Cm with Dm
